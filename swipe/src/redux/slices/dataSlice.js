@@ -10,13 +10,15 @@ const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    setData: (state, action) => {
-      state.invoices = action.payload.invoices;
-      state.products = action.payload.products;
-      state.customers = action.payload.customers;
+    updateData: (state, action) => {
+      const { invoices = [], products = [], customers = [] } = action.payload;
+
+      state.invoices = [...state.invoices, ...invoices];
+      state.products = [...state.products, ...products];
+      state.customers = [...state.customers, ...customers];
     },
   },
 });
 
-export const { setData } = dataSlice.actions;
+export const { updateData } = dataSlice.actions;
 export default dataSlice.reducer;

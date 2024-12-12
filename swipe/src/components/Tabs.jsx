@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Tabs({ activeTab, onTabClick }) {
-  const tabs = ['Invoices', 'Tab2', 'Tab3'];
+  const tabs = ['Invoices', 'Products', 'Customers'];
 
   return (
     <div className="flex justify-center space-x-16 mb-4">

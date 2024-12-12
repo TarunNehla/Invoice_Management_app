@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { setData } from '../redux/slices/dataSlice';
+import { updateData } from '../redux/slices/dataSlice';
 import { uploadFile } from '../service/api';
 
 const transformData = (backendData) => ({
@@ -45,7 +45,7 @@ function FileUploader() {
         const response = await uploadFile(data);
         console.log(response);
         const transformedData = transformData(response);
-        dispatch(setData(transformedData));
+        dispatch(updateData(transformedData));
         fileInputRef.current.value = null;
         setFile(null);
       } catch (error) {

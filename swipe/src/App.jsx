@@ -48,7 +48,7 @@ function App() {
             </table>
           </div>
         )}
-        {activeTab === 'Tab2' && (
+        {activeTab === 'Products' && (
           <div className="w-full">
             <h2 className="text-xl font-bold mb-4 text-center">Products</h2>
             <table className="table-auto w-full border-collapse border border-gray-300">
@@ -75,7 +75,7 @@ function App() {
             </table>
           </div>
         )}
-        {activeTab === 'Tab3' && (
+        {activeTab === 'Customers' && (
           <div className="w-full">
             <h2 className="text-xl font-bold mb-4 text-center">Customers</h2>
             <table className="table-auto w-full border-collapse border border-gray-300">
