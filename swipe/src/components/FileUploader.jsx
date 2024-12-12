@@ -55,7 +55,7 @@ function FileUploader() {
   };
 
   return (
-    <div>
+    <div className='flex justify-center mb-8'>
       <input type="file" onChange={handleFileChange} ref={fileInputRef} />
       {file && <p>Selected file: {file.name}</p>}
       <button className="px-4 py-2 bg-green-500 text-white" onClick={handleSubmit}>

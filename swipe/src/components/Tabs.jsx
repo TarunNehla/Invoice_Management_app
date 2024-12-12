@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Tabs({ activeTab, onTabClick }) {
-  const tabs = ['Tab1', 'Tab2', 'Tab3'];
+  const tabs = ['Invoices', 'Tab2', 'Tab3'];
 
   return (
-    <div className="flex space-x-4 mb-4">
+    <div className="flex justify-center space-x-16 mb-4">
       {tabs.map((tab) => (
         <button
           key={tab}
