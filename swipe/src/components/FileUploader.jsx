@@ -45,6 +45,7 @@ function FileUploader() {
         const response = await uploadFile(data);
         console.log(response);
         const transformedData = transformData(response);
+        console.log('final data before data slice : ', transformedData);
         dispatch(updateData(transformedData));
         fileInputRef.current.value = null;
         setFile(null);

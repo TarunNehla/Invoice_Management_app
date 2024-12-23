@@ -1,4 +1,4 @@
-import cors from 'cors'; // Updated to ES Module import
+import cors from 'cors';  
 import express from 'express';
 import multer from 'multer';
 import { GoogleGenerativeAI } from '@google/generative-ai';
@@ -14,13 +14,14 @@ const fileManager = new GoogleAIFileManager(API_KEY);
 
 const app = express();
 app.use(cors());
-const upload = multer({ dest: 'uploads/' }); // Temporary storage for uploaded files
+// Temporary storage of uploaded files
+const upload = multer({ dest: 'uploads/' }); 
 
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   try {
     const file = req.file;
 
-    // Upload file to Google Gemini
+    // gemini 
     const uploadResponse = await fileManager.uploadFile(file.path, {
       mimeType: file.mimetype,
       displayName: file.originalname,
@@ -50,13 +51,10 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
     const rawResponse = result.response.text();
     console.log("Raw response from Gemini:", rawResponse);
 
-    // Sanitize the response text (remove any invalid characters or markdown)
-
     const sanitizedText = rawResponse.replace(/^```json\n|\n```$/g, '').trim();
 
     const parsedData = JSON.parse(sanitizedText);
 
-  // Normalize keys to lowercase
   const extractedData = {
     invoices: parsedData.Invoices || [],
     products: parsedData.Products || [],
@@ -65,7 +63,6 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
 
   console.log('Extracted Data:', extractedData);
 
-  // Prepare response data
   const responseData = {
     invoices: extractedData.invoices,
     products: extractedData.products,

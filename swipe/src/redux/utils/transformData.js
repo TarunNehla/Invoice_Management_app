@@ -1,7 +1,6 @@
 export const transformData = (data) => {
     const { invoices = [], products = [], customers = [] } = data;
   
-    // Normalize invoice data to link products and customers
     const productMap = Object.fromEntries(
       products.map((product) => [product.Name, product])
     );
